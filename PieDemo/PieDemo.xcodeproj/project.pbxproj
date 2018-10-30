@@ -17,6 +17,7 @@
 		C35EFCC8218697BC0050E0F3 /* PieDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C35EFCC7218697BC0050E0F3 /* PieDemoUITests.m */; };
 		C35EFCDB21869EB20050E0F3 /* CYPieView.m in Sources */ = {isa = PBXBuildFile; fileRef = C35EFCD921869EB20050E0F3 /* CYPieView.m */; };
 		C35EFCDE21869EFB0050E0F3 /* RouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C35EFCDD21869EFB0050E0F3 /* RouteManager.m */; };
+		C35EFCE52187ED030050E0F3 /* CYButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C35EFCE42187ED030050E0F3 /* CYButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		C35EFCDC21869EFB0050E0F3 /* RouteManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RouteManager.h; sourceTree = "<group>"; };
 		C35EFCDD21869EFB0050E0F3 /* RouteManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RouteManager.m; sourceTree = "<group>"; };
 		C35EFCDF2186A1290050E0F3 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		C35EFCE32187ED030050E0F3 /* CYButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CYButton.h; sourceTree = "<group>"; };
+		C35EFCE42187ED030050E0F3 /* CYButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CYButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +116,8 @@
 				C35EFCA4218697B50050E0F3 /* AppDelegate.m */,
 				C35EFCA6218697B60050E0F3 /* ViewController.h */,
 				C35EFCA7218697B60050E0F3 /* ViewController.m */,
+				C35EFCE32187ED030050E0F3 /* CYButton.h */,
+				C35EFCE42187ED030050E0F3 /* CYButton.m */,
 				C35EFCDC21869EFB0050E0F3 /* RouteManager.h */,
 				C35EFCDD21869EFB0050E0F3 /* RouteManager.m */,
 				C35EFCA9218697B60050E0F3 /* Main.storyboard */,
@@ -283,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C35EFCA8218697B60050E0F3 /* ViewController.m in Sources */,
+				C35EFCE52187ED030050E0F3 /* CYButton.m in Sources */,
 				C35EFCB3218697BB0050E0F3 /* main.m in Sources */,
 				C35EFCDE21869EFB0050E0F3 /* RouteManager.m in Sources */,
 				C35EFCA5218697B50050E0F3 /* AppDelegate.m in Sources */,
@@ -458,13 +464,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P3922CJGWW;
 				GCC_PREFIX_HEADER = PieDemo/PrefixHeader.pch;
 				INFOPLIST_FILE = PieDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.somnic.demo.scene.PieDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.somnic.demo.scene;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -475,13 +483,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P3922CJGWW;
 				GCC_PREFIX_HEADER = PieDemo/PrefixHeader.pch;
 				INFOPLIST_FILE = PieDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.somnic.demo.scene.PieDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.somnic.demo.scene;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
