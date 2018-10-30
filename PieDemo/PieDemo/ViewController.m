@@ -9,6 +9,9 @@
 #import "ViewController.h"
 #import "CYPieView.h"
 #import "CYButton.h"
+#import <objc/runtime.h>
+#import "TestObj.h"
+
 #define kbaseKey 10000
 @interface ViewController ()
 
@@ -18,9 +21,46 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setThreeView];
+    [self sendMsg];
     // Do any additional setup after loading the view, typically from a nib.
 }
+- (void)sendMsg
+{
+//    发送hello (并没有实现该方法)
+    [self performSelector:@selector(hello)];
+}
+
+#pragma mark -② forwardingTargetForSelector
+- (id)forwardingTargetForSelector:(SEL)aSelector
+{
+    NSString *clsStr = NSStringFromSelector(aSelector);
+    if ([clsStr isEqualToString:@"hello"]) {
+//        return  @"hhhh";
+//        return [TestObj new];
+    }
+    return nil;
+}
+#pragma mark -③ forwardInvocation 
+
+- (void)forwardInvocation:(NSInvocation *)anInvocation
+{
+    NSString *clsStr = NSStringFromSelector(anInvocation.selector);
+
+    if ([clsStr isEqualToString:@"hello"])
+    {
+        [anInvocation invokeWithTarget:[TestObj new]];
+    }
+}
+-(NSMethodSignature*)methodSignatureForSelector:(SEL)selector
+{
+    NSMethodSignature *signature = [super methodSignatureForSelector:selector];
+    if (! signature) {
+        //生成方法签名
+        signature = [[TestObj new] methodSignatureForSelector:selector];
+    }
+    return signature;
+}
+#pragma mark - 事件响应
 - (void)setThreeView
 {
     UIButton *buttonA = [UIButton new];
@@ -82,6 +122,4 @@
     [pie setPieData:@[@10.0,@20.0,@30.0,@11.2,@10.7,@18.1] firstCircle:scale_device_value(120) secondCircle:scale_device_value(200) thirdCircle:scale_device_value(260) labelCircle:scale_device_value(265)];
     
 }
-
-
 @end
