@@ -27,7 +27,7 @@
 + (nullable UIImage *)p_cy_imageNamed:(NSString *)name
 {
     UIImage *image = [self p_cy_imageNamed:name];
-    NSLog(@"图片的名字是%@",name);
+//    NSLog(@"图片的名字是%@",name);
     [image setAccessibilityIdentifier:name];
     return image;
 }

@@ -62,34 +62,75 @@
 
 - (void)p_cy_showViewController:(UIViewController *)vc sender:(id)sender
 {
+      NSLog(@"add p_cy_showViewController");
+      [[CYTrackingManager sharedTrackingManager] addVC:@{@"name":NSStringFromClass([vc class]),@"add":[NSString stringWithFormat:@"%p",vc]}];
+    
     [self p_cy_showViewController:vc sender:sender];
 }
 - (void)p_cy_setViewControllers:(NSArray<__kindof UIViewController *> *)viewControllers
 {
+      NSLog(@"reset p_cy_setViewControllers");
+    NSMutableArray *infoarray = [NSMutableArray new];
+    for (UIViewController *vc in viewControllers) {
+        NSDictionary *dic =@{@"name":NSStringFromClass([vc class]),@"add":[NSString stringWithFormat:@"%p",vc]};
+        [infoarray addObject:dic];
+    }
+    [[CYTrackingManager sharedTrackingManager] resetVCArray:infoarray];
     [self p_cy_setViewControllers:viewControllers];
 }
-- (NSArray<UIViewController *> *)p_cy_popToRootViewControllerAnimated:(BOOL)animated
-{
-    return  [self p_cy_popToRootViewControllerAnimated:animated];
-}
-- (NSArray<UIViewController *> *)p_cy_popToViewController:(UIViewController *)viewController animated:(BOOL)animated
-{
-    
-    return  [self p_cy_popToViewController:viewController animated:animated];
-}
 - (instancetype)p_cy_initWithRootViewController:(UIViewController *)rootViewController{
-    NSLog(@"nav:%@",rootViewController);
-
+//     NSLog(@"add p_cy_initWithRootViewController");
+//      [[CYTrackingManager sharedTrackingManager] addVC:@{@"name":NSStringFromClass([rootViewController class]),@"add":[NSString stringWithFormat:@"%p",rootViewController]}];
+    
     return  [self p_cy_initWithRootViewController:rootViewController];
 }
 
 - (void)p_cy_pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    NSLog(@"nav:%@",viewController);
+      NSLog(@"add p_cy_pushViewController");
+    
+    [[CYTrackingManager sharedTrackingManager] addVC:@{@"name":NSStringFromClass([viewController class]),@"add":[NSString stringWithFormat:@"%p",viewController]}];
+    
     [self p_cy_pushViewController:viewController animated:animated];
 }
+
+- (NSArray<UIViewController *> *)p_cy_popToRootViewControllerAnimated:(BOOL)animated
+{
+    NSLog(@"reset p_cy_popToRootViewControllerAnimated");
+
+    NSArray *viewControllers =[self p_cy_popToRootViewControllerAnimated:animated];
+    NSMutableArray *infoarray = [NSMutableArray new];
+    for (UIViewController *vc in viewControllers) {
+        NSDictionary *dic =@{@"name":NSStringFromClass([vc class]),@"add":[NSString stringWithFormat:@"%p",vc]};
+        [infoarray addObject:dic];
+    }
+    [[CYTrackingManager sharedTrackingManager] resetVCArray:infoarray];
+    
+    return viewControllers;
+}
+- (NSArray<UIViewController *> *)p_cy_popToViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+     NSLog(@"reset p_cy_popToViewController");
+    NSArray *viewControllers =[self p_cy_popToViewController:viewController animated:animated];
+    NSMutableArray *infoarray = [NSMutableArray new];
+    for (UIViewController *vc in viewControllers) {
+        NSDictionary *dic =@{@"name":NSStringFromClass([vc class]),@"add":[NSString stringWithFormat:@"%p",vc]};
+        [infoarray addObject:dic];
+    }
+    [[CYTrackingManager sharedTrackingManager] resetVCArray:infoarray];
+    
+    return viewControllers;
+}
+
 - (nullable UIViewController *)p_cy_popViewControllerAnimated:(BOOL)animated{
-  return  [self p_cy_popViewControllerAnimated:animated];
+     NSLog(@"remove p_cy_popViewControllerAnimated");
+    
+    UIViewController *viewController =  [self p_cy_popViewControllerAnimated:animated];
+    
+      [[CYTrackingManager sharedTrackingManager]
+       removeVC:@{@"name":NSStringFromClass([viewController class]),
+                  @"add":[NSString stringWithFormat:@"%p",viewController]}];
+  return  viewController;
 }
 
 @end

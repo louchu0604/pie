@@ -17,5 +17,7 @@ enum{
 +(instancetype)sharedTrackingManager;
 - (void)addEvent:(SEL)action from:(nullable id)sender;
 - (void)currentVC:(id)vc event:(int)event;
-
+- (void)addVC:(NSDictionary *)info;
+- (void)removeVC:(NSDictionary *)info;
+- (void)resetVCArray:(NSArray *)vc;
 @end

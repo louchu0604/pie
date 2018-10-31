@@ -7,6 +7,7 @@
 //
 
 #import "CYTrackingManager.h"
+
 //维护一个串行队列
 #define savePath @"cytracking.txt"
 static dispatch_queue_t serialQueue;
@@ -14,6 +15,7 @@ static CYTrackingManager * manager;
 static int CYTrackingCurrentVCIndex;//页面的深度
 static int CYTrackingCurrentViewIndex;//视图的深度
 static NSMutableString *url_path;
+static NSMutableArray <NSDictionary*> *vcArray;
 @interface CYTrackingManager()
 @end
 //static id *__unsafe_unretained *vc;
@@ -34,7 +36,7 @@ static NSMutableString *url_path;
         manager = [[CYTrackingManager alloc] init];
         serialQueue = dispatch_queue_create("me.dearcy.cytrackingQueue", NULL);
         url_path = [NSMutableString new];
-        
+        vcArray = [NSMutableArray new];
         
         //        判断文件是否存在？donothing:create a new one
         
@@ -56,7 +58,7 @@ static NSMutableString *url_path;
 #pragma mark - 路径重置
 - (void)setCurrentPath
 {
-    
+    [vcArray removeAllObjects];
 }
 - (void)currentVC:(NSString *)vc
 {
@@ -70,11 +72,45 @@ static NSMutableString *url_path;
 }
 - (void)p_removeVC:(id)vc
 {
-    
+    for (id element in vcArray) {
+        if (vc==element) {
+            [vcArray removeObject:element];
+            break;
+        }
+    }
 }
-- (void)p_addVC:(id)vc
+#pragma mark - 根据内存地址来匹配
+- (void)addVC:(NSDictionary *)info
+{
+    [vcArray addObject:info];
+     NSLog(@"add");
+    [self printvcarray];
+
+}
+- (void)removeVC:(NSDictionary *)info
 {
     
+    for (NSDictionary *vcinfo in vcArray) {
+        if ([[vcinfo valueForKey:@"add"] isEqualToString:[info valueForKey:@"add"]]) {
+            [vcArray removeObject:vcinfo];
+            break;
+        }
+    }
+    NSLog(@"remove");
+    [self printvcarray];
+   
 }
-
+- (void)printvcarray
+{
+    for (NSDictionary *vcinfo in vcArray) {
+        NSLog(@"当前vc ：%@ %@",[vcinfo valueForKey:@"name"],[vcinfo valueForKey:@"add"]);
+    }
+}
+- (void)resetVCArray:(NSArray *)vc
+{
+    [vcArray removeAllObjects];
+    [vcArray addObjectsFromArray:vc];
+     NSLog(@"reset");
+    [self printvcarray];
+}
 @end

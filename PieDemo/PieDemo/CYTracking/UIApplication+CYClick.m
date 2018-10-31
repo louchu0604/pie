@@ -45,9 +45,9 @@
                 NSLog(@"imagename : %@",imagename);
             }
         }
-        NSLog(@"action:%@ to:%@ from:%@ for:%@",NSStringFromSelector(action),NSStringFromClass([target class]) ,NSStringFromClass([sender class]) ,event);
-        
-        NSLog(@"\r action:%@ \r to:%@ \r from:%@ \r for:%@",NSStringFromSelector(action),NSStringFromClass([target class]) ,sender,event);
+//        NSLog(@"action:%@ to:%@ from:%@ for:%@",NSStringFromSelector(action),NSStringFromClass([target class]) ,NSStringFromClass([sender class]) ,event);
+//        
+//        NSLog(@"\r action:%@ \r to:%@ \r from:%@ \r for:%@",NSStringFromSelector(action),NSStringFromClass([target class]) ,sender,event);
 
         
     }

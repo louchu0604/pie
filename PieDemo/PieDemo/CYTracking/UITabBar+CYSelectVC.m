@@ -19,7 +19,7 @@
 }
 - (void)_p_cytabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
-    
+    NSLog(@"%@",item.title);
 }
 
 @end
