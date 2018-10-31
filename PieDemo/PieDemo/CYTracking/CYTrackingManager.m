@@ -53,6 +53,11 @@ static NSMutableString *url_path;
 //    NSLog(@"\r url:%@ \r action:%@ class:%@",url_path,NSStringFromSelector(action),NSStringFromClass([sender class]));
     
 }
+#pragma mark - 路径重置
+- (void)setCurrentPath
+{
+    
+}
 - (void)currentVC:(NSString *)vc
 {
     if(url_path.length==0){

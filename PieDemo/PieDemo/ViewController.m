@@ -26,7 +26,6 @@
 }
 - (void)sendMsg
 {
-//    发送hello (并没有实现该方法)
     [self performSelector:@selector(hello)];
 }
 
