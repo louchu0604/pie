@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C33C72CF2189FA0600850A42 /* UIViewController+CYViewPush.m in Sources */ = {isa = PBXBuildFile; fileRef = C33C72BB2189FA0600850A42 /* UIViewController+CYViewPush.m */; };
+		C33C72D02189FA0600850A42 /* UINavigationController+CYPushPop.m in Sources */ = {isa = PBXBuildFile; fileRef = C33C72BD2189FA0600850A42 /* UINavigationController+CYPushPop.m */; };
+		C33C72D12189FA0600850A42 /* CYTrackingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C33C72C02189FA0600850A42 /* CYTrackingManager.m */; };
+		C33C72D22189FA0600850A42 /* CYNodeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C33C72C22189FA0600850A42 /* CYNodeManager.m */; };
+		C33C72D32189FA0600850A42 /* UITabBarItem+CYSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = C33C72C32189FA0600850A42 /* UITabBarItem+CYSelect.m */; };
+		C33C72D42189FA0600850A42 /* UIApplication+CYClick.m in Sources */ = {isa = PBXBuildFile; fileRef = C33C72C42189FA0600850A42 /* UIApplication+CYClick.m */; };
+		C33C72D52189FA0600850A42 /* UITabBar+CYSelectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C33C72C62189FA0600850A42 /* UITabBar+CYSelectVC.m */; };
+		C33C72D62189FA0600850A42 /* UIButton+SaveImageName.m in Sources */ = {isa = PBXBuildFile; fileRef = C33C72C92189FA0600850A42 /* UIButton+SaveImageName.m */; };
+		C33C72D72189FA0600850A42 /* UITabBarController+CYPush.m in Sources */ = {isa = PBXBuildFile; fileRef = C33C72CA2189FA0600850A42 /* UITabBarController+CYPush.m */; };
+		C33C72D82189FA0600850A42 /* UIImage+SaveImageName.m in Sources */ = {isa = PBXBuildFile; fileRef = C33C72CD2189FA0600850A42 /* UIImage+SaveImageName.m */; };
 		C342F6B92188D3B100F38897 /* UIViewController+addMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = C342F6B82188D3B100F38897 /* UIViewController+addMethod.m */; };
 		C342F6BC2188D85500F38897 /* TestObj.m in Sources */ = {isa = PBXBuildFile; fileRef = C342F6BB2188D85500F38897 /* TestObj.m */; };
 		C35EFCA5218697B50050E0F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C35EFCA4218697B50050E0F3 /* AppDelegate.m */; };
@@ -40,6 +50,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C33C72BB2189FA0600850A42 /* UIViewController+CYViewPush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CYViewPush.m"; sourceTree = "<group>"; };
+		C33C72BC2189FA0600850A42 /* UITabBar+CYSelectVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+CYSelectVC.h"; sourceTree = "<group>"; };
+		C33C72BD2189FA0600850A42 /* UINavigationController+CYPushPop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+CYPushPop.m"; sourceTree = "<group>"; };
+		C33C72BE2189FA0600850A42 /* UITabBarController+CYPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+CYPush.h"; sourceTree = "<group>"; };
+		C33C72BF2189FA0600850A42 /* UIButton+SaveImageName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+SaveImageName.h"; sourceTree = "<group>"; };
+		C33C72C02189FA0600850A42 /* CYTrackingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYTrackingManager.m; sourceTree = "<group>"; };
+		C33C72C12189FA0600850A42 /* UIImage+SaveImageName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SaveImageName.h"; sourceTree = "<group>"; };
+		C33C72C22189FA0600850A42 /* CYNodeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYNodeManager.m; sourceTree = "<group>"; };
+		C33C72C32189FA0600850A42 /* UITabBarItem+CYSelect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarItem+CYSelect.m"; sourceTree = "<group>"; };
+		C33C72C42189FA0600850A42 /* UIApplication+CYClick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+CYClick.m"; sourceTree = "<group>"; };
+		C33C72C52189FA0600850A42 /* UINavigationController+CYPushPop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+CYPushPop.h"; sourceTree = "<group>"; };
+		C33C72C62189FA0600850A42 /* UITabBar+CYSelectVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+CYSelectVC.m"; sourceTree = "<group>"; };
+		C33C72C72189FA0600850A42 /* UIViewController+CYViewPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CYViewPush.h"; sourceTree = "<group>"; };
+		C33C72C82189FA0600850A42 /* CYTrackingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYTrackingManager.h; sourceTree = "<group>"; };
+		C33C72C92189FA0600850A42 /* UIButton+SaveImageName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+SaveImageName.m"; sourceTree = "<group>"; };
+		C33C72CA2189FA0600850A42 /* UITabBarController+CYPush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+CYPush.m"; sourceTree = "<group>"; };
+		C33C72CB2189FA0600850A42 /* UITabBarItem+CYSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarItem+CYSelect.h"; sourceTree = "<group>"; };
+		C33C72CC2189FA0600850A42 /* CYNodeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYNodeManager.h; sourceTree = "<group>"; };
+		C33C72CD2189FA0600850A42 /* UIImage+SaveImageName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SaveImageName.m"; sourceTree = "<group>"; };
+		C33C72CE2189FA0600850A42 /* UIApplication+CYClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+CYClick.h"; sourceTree = "<group>"; };
 		C342F6B72188D3B100F38897 /* UIViewController+addMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+addMethod.h"; sourceTree = "<group>"; };
 		C342F6B82188D3B100F38897 /* UIViewController+addMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+addMethod.m"; sourceTree = "<group>"; };
 		C342F6BA2188D85500F38897 /* TestObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestObj.h; sourceTree = "<group>"; };
@@ -94,6 +124,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C33C72BA2189FA0600850A42 /* CYTracking */ = {
+			isa = PBXGroup;
+			children = (
+				C33C72BB2189FA0600850A42 /* UIViewController+CYViewPush.m */,
+				C33C72BC2189FA0600850A42 /* UITabBar+CYSelectVC.h */,
+				C33C72BD2189FA0600850A42 /* UINavigationController+CYPushPop.m */,
+				C33C72BE2189FA0600850A42 /* UITabBarController+CYPush.h */,
+				C33C72BF2189FA0600850A42 /* UIButton+SaveImageName.h */,
+				C33C72C02189FA0600850A42 /* CYTrackingManager.m */,
+				C33C72C12189FA0600850A42 /* UIImage+SaveImageName.h */,
+				C33C72C22189FA0600850A42 /* CYNodeManager.m */,
+				C33C72C32189FA0600850A42 /* UITabBarItem+CYSelect.m */,
+				C33C72C42189FA0600850A42 /* UIApplication+CYClick.m */,
+				C33C72C52189FA0600850A42 /* UINavigationController+CYPushPop.h */,
+				C33C72C62189FA0600850A42 /* UITabBar+CYSelectVC.m */,
+				C33C72C72189FA0600850A42 /* UIViewController+CYViewPush.h */,
+				C33C72C82189FA0600850A42 /* CYTrackingManager.h */,
+				C33C72C92189FA0600850A42 /* UIButton+SaveImageName.m */,
+				C33C72CA2189FA0600850A42 /* UITabBarController+CYPush.m */,
+				C33C72CB2189FA0600850A42 /* UITabBarItem+CYSelect.h */,
+				C33C72CC2189FA0600850A42 /* CYNodeManager.h */,
+				C33C72CD2189FA0600850A42 /* UIImage+SaveImageName.m */,
+				C33C72CE2189FA0600850A42 /* UIApplication+CYClick.h */,
+			);
+			name = CYTracking;
+			path = PieDemo/CYTracking;
+			sourceTree = SOURCE_ROOT;
+		};
 		C35EFC97218697B50050E0F3 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +175,7 @@
 		C35EFCA2218697B50050E0F3 /* PieDemo */ = {
 			isa = PBXGroup;
 			children = (
+				C33C72BA2189FA0600850A42 /* CYTracking */,
 				C35EFCD821869EB20050E0F3 /* CYUIKit */,
 				C35EFCA3218697B50050E0F3 /* AppDelegate.h */,
 				C35EFCA4218697B50050E0F3 /* AppDelegate.m */,
@@ -297,12 +356,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C33C72D72189FA0600850A42 /* UITabBarController+CYPush.m in Sources */,
 				C35EFCA8218697B60050E0F3 /* ViewController.m in Sources */,
+				C33C72D02189FA0600850A42 /* UINavigationController+CYPushPop.m in Sources */,
+				C33C72CF2189FA0600850A42 /* UIViewController+CYViewPush.m in Sources */,
+				C33C72D22189FA0600850A42 /* CYNodeManager.m in Sources */,
 				C35EFCE52187ED030050E0F3 /* CYButton.m in Sources */,
 				C35EFCB3218697BB0050E0F3 /* main.m in Sources */,
+				C33C72D82189FA0600850A42 /* UIImage+SaveImageName.m in Sources */,
 				C35EFCDE21869EFB0050E0F3 /* RouteManager.m in Sources */,
+				C33C72D12189FA0600850A42 /* CYTrackingManager.m in Sources */,
 				C35EFCA5218697B50050E0F3 /* AppDelegate.m in Sources */,
+				C33C72D32189FA0600850A42 /* UITabBarItem+CYSelect.m in Sources */,
+				C33C72D52189FA0600850A42 /* UITabBar+CYSelectVC.m in Sources */,
+				C33C72D62189FA0600850A42 /* UIButton+SaveImageName.m in Sources */,
 				C342F6B92188D3B100F38897 /* UIViewController+addMethod.m in Sources */,
+				C33C72D42189FA0600850A42 /* UIApplication+CYClick.m in Sources */,
 				C35EFCDB21869EB20050E0F3 /* CYPieView.m in Sources */,
 				C342F6BC2188D85500F38897 /* TestObj.m in Sources */,
 			);
