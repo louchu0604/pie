@@ -12,10 +12,9 @@
 #define savePath @"cytracking.txt"
 static dispatch_queue_t serialQueue;
 static CYTrackingManager * manager;
-static int CYTrackingCurrentVCIndex;//页面的深度
-static int CYTrackingCurrentViewIndex;//视图的深度
 static NSMutableString *url_path;
 static NSMutableArray <NSDictionary*> *vcArray;
+static NSDictionary *commands;
 @interface CYTrackingManager()
 @end
 //static id *__unsafe_unretained *vc;
@@ -37,6 +36,12 @@ static NSMutableArray <NSDictionary*> *vcArray;
         serialQueue = dispatch_queue_create("me.dearcy.cytrackingQueue", NULL);
         url_path = [NSMutableString new];
         vcArray = [NSMutableArray new];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"cy_trace_command" ofType:@"json"];
+        
+        NSData *data=[NSData dataWithContentsOfFile:path];
+       commands = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:NULL];
+       
+        
         
         //        判断文件是否存在？donothing:create a new one
         
