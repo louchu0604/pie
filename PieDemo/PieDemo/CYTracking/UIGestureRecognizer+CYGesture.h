@@ -1,8 +1,8 @@
 //
-//  UIButton+SaveImageName.h
+//  UIGestureRecognizer+CYGesture.h
 //  SmartSleep
 //
-//  Created by louchu on 2018/10/31.
+//  Created by louchu on 2018/11/1.
 //  Copyright © 2018年 Chu Lou. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UIButton (SaveImageName)
+@interface UIGestureRecognizer (CYGesture)
 
 @end
 

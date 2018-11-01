@@ -13,11 +13,14 @@ enum{
     kPushVC,
     kPopVC,
 };
+//写：生成一条 写一条
+//上报：后台运行||主动上报||
 @interface CYTrackingManager : NSObject
 +(instancetype)sharedTrackingManager;
 - (void)addEvent:(SEL)action from:(nullable id)sender;
-- (void)currentVC:(id)vc event:(int)event;
 - (void)addVC:(NSDictionary *)info;
 - (void)removeVC:(NSDictionary *)info;
 - (void)resetVCArray:(NSArray *)vc;
+- (void)freshCommand;
+- (void)currentIndex:(NSString *)index;
 @end

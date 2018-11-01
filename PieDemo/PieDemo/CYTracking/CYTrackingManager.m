@@ -12,9 +12,12 @@
 #define savePath @"cytracking.txt"
 static dispatch_queue_t serialQueue;
 static CYTrackingManager * manager;
-static NSMutableString *url_path;
+static BOOL openWrite;
 static NSMutableArray <NSDictionary*> *vcArray;
+static NSMutableString *saveLogs;
 static NSDictionary *commands;
+static NSDateFormatter *formatter;
+static NSString *currentIndex;
 @interface CYTrackingManager()
 @end
 //static id *__unsafe_unretained *vc;
@@ -34,14 +37,15 @@ static NSDictionary *commands;
     dispatch_once(&onceToken, ^{
         manager = [[CYTrackingManager alloc] init];
         serialQueue = dispatch_queue_create("me.dearcy.cytrackingQueue", NULL);
-        url_path = [NSMutableString new];
+        openWrite = false;
         vcArray = [NSMutableArray new];
         NSString *path = [[NSBundle mainBundle] pathForResource:@"cy_trace_command" ofType:@"json"];
         
         NSData *data=[NSData dataWithContentsOfFile:path];
        commands = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:NULL];
-       
-        
+        formatter = [[NSDateFormatter alloc]init];
+        [formatter setDateFormat:@"yyyy/MM/dd HH:mm:ss"];
+        saveLogs = [NSMutableString new];
         
         //        判断文件是否存在？donothing:create a new one
         
@@ -50,8 +54,18 @@ static NSDictionary *commands;
     return manager;
     
 }
+- (void)freshCommand
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"cy_trace_command" ofType:@"json"];
+    
+    NSData *data=[NSData dataWithContentsOfFile:path];
+    commands = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:NULL];
+}
 - (void)addEvent:(SEL)action from:(nullable id)sender
 {
+    if (openWrite) {
+        
+    }
 //    key的值为路径+要追踪的方法
     
 //    query current vc add event
@@ -60,20 +74,14 @@ static NSDictionary *commands;
 //    NSLog(@"\r url:%@ \r action:%@ class:%@",url_path,NSStringFromSelector(action),NSStringFromClass([sender class]));
     
 }
+- (void)currentIndex:(NSString *)index
+{
+    currentIndex = index;
+}
 #pragma mark - 路径重置
 - (void)setCurrentPath
 {
     [vcArray removeAllObjects];
-}
-- (void)currentVC:(NSString *)vc
-{
-    if(url_path.length==0){
-        [url_path appendString:vc];
-    }else
-    {
-        [url_path appendString:@"-"];
-        [url_path appendString:vc];
-    }
 }
 - (void)p_removeVC:(id)vc
 {
@@ -107,8 +115,65 @@ static NSDictionary *commands;
 }
 - (void)printvcarray
 {
+    
+    NSMutableString *str = [NSMutableString new];
     for (NSDictionary *vcinfo in vcArray) {
         NSLog(@"当前vc ：%@ %@",[vcinfo valueForKey:@"name"],[vcinfo valueForKey:@"add"]);
+        [str appendString:[vcinfo valueForKey:@"name"]];
+        [str appendString:@"-"];
+    }
+    openWrite = false;
+    if ([[commands valueForKey:@"isAll"] intValue]==1){//isAll==1 对此页面开始的路径都生效
+        for (NSDictionary  *dic in [commands valueForKey:@"path"]) {
+            if ([str hasPrefix:[dic valueForKey:@"path"]]&&[currentIndex isEqualToString:[dic valueForKey:@"index"]]) {
+                openWrite = true;
+                break;
+            }
+        }
+    }else
+    {
+        for (NSDictionary  *dic in [commands valueForKey:@"path"]) {
+            if ([str isEqualToString:[dic valueForKey:@"path"]]&&[currentIndex isEqualToString:[dic valueForKey:@"index"]]) {
+                openWrite = true;
+                break;
+            }
+        }
+        
+    }
+    if(openWrite)
+    {
+        [self saveLog:[NSString stringWithFormat:@"time:%@ tab:%@ path:%@ \r",[formatter stringFromDate:[NSDate date]],currentIndex,str]];
+    }
+    
+}
+- (void)saveLog:(NSString *)tracelog
+{
+    [saveLogs appendString:tracelog];
+    [self writeLog];
+}
+- (void)writeLog
+{
+    if (saveLogs.length==0) {
+        return;
+    }
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSArray *directoryPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString *documentDirectory = [directoryPaths objectAtIndex:0];
+    
+   
+    NSString *filePath = [documentDirectory stringByAppendingPathComponent:savePath];
+    if (![fileManager fileExistsAtPath:filePath]) {
+        
+        [fileManager createFileAtPath:filePath contents:nil attributes:nil];
+    }
+    
+    BOOL result =[saveLogs writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    if (result) {//
+        [saveLogs setString:@""];
+        NSLog(@"write success");
+    }else
+    {
+        NSLog(@"write fail");
     }
 }
 - (void)resetVCArray:(NSArray *)vc

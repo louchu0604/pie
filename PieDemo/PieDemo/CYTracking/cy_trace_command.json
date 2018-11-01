@@ -1,6 +1,10 @@
 {
     "isAll":"1",
-    "track":[
-      
+    "emer":"0",
+    "path":[
+        {
+            "path":"SSHome-UITabBarController-",
+            "index":"睡觉",
+        }
     ]
 }

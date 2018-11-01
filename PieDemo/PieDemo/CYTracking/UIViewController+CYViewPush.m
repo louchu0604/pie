@@ -43,7 +43,6 @@
 - (void)p_cy_presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion
 {
     CYTrackingManager *m = [CYTrackingManager sharedTrackingManager];
-    [m currentVC:viewControllerToPresent event:0];
     [self p_cy_presentViewController:viewControllerToPresent animated:flag completion:completion];
 }
 @end

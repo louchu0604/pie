@@ -3,7 +3,7 @@
 //  SmartSleep
 //
 //  Created by louchu on 2018/10/31.
-//  Copyright © 2018年 Ben. All rights reserved.
+//  Copyright © 2018年 Chu Lou. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

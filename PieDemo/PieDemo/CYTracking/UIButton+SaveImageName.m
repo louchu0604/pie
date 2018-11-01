@@ -3,7 +3,7 @@
 //  SmartSleep
 //
 //  Created by louchu on 2018/10/31.
-//  Copyright © 2018年 Ben. All rights reserved.
+//  Copyright © 2018年 Chu Lou. All rights reserved.
 //
 
 #import "UIButton+SaveImageName.h"
@@ -23,7 +23,6 @@
         //    if exist ,changed IMP
         method_exchangeImplementations(originMethod,newMethod);
     }
-    
 }
 + (nullable UIImage *)p_cy_imageNamed:(NSString *)name
 {

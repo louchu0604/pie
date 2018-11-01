@@ -19,6 +19,7 @@
 		C33C72D82189FA0600850A42 /* UIImage+SaveImageName.m in Sources */ = {isa = PBXBuildFile; fileRef = C33C72CD2189FA0600850A42 /* UIImage+SaveImageName.m */; };
 		C342F6B92188D3B100F38897 /* UIViewController+addMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = C342F6B82188D3B100F38897 /* UIViewController+addMethod.m */; };
 		C342F6BC2188D85500F38897 /* TestObj.m in Sources */ = {isa = PBXBuildFile; fileRef = C342F6BB2188D85500F38897 /* TestObj.m */; };
+		C342F6F8218AAAEC00F38897 /* cy_trace_command.json in Resources */ = {isa = PBXBuildFile; fileRef = C342F6F7218AAAEC00F38897 /* cy_trace_command.json */; };
 		C35EFCA5218697B50050E0F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C35EFCA4218697B50050E0F3 /* AppDelegate.m */; };
 		C35EFCA8218697B60050E0F3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C35EFCA7218697B60050E0F3 /* ViewController.m */; };
 		C35EFCAB218697B60050E0F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C35EFCA9218697B60050E0F3 /* Main.storyboard */; };
@@ -74,6 +75,7 @@
 		C342F6B82188D3B100F38897 /* UIViewController+addMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+addMethod.m"; sourceTree = "<group>"; };
 		C342F6BA2188D85500F38897 /* TestObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestObj.h; sourceTree = "<group>"; };
 		C342F6BB2188D85500F38897 /* TestObj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestObj.m; sourceTree = "<group>"; };
+		C342F6F7218AAAEC00F38897 /* cy_trace_command.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cy_trace_command.json; sourceTree = "<group>"; };
 		C35EFCA0218697B50050E0F3 /* PieDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PieDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C35EFCA3218697B50050E0F3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C35EFCA4218697B50050E0F3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		C33C72BA2189FA0600850A42 /* CYTracking */ = {
 			isa = PBXGroup;
 			children = (
+				C342F6F7218AAAEC00F38897 /* cy_trace_command.json */,
 				C33C72BB2189FA0600850A42 /* UIViewController+CYViewPush.m */,
 				C33C72BC2189FA0600850A42 /* UITabBar+CYSelectVC.h */,
 				C33C72BD2189FA0600850A42 /* UINavigationController+CYPushPop.m */,
@@ -330,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C35EFCB0218697BB0050E0F3 /* LaunchScreen.storyboard in Resources */,
+				C342F6F8218AAAEC00F38897 /* cy_trace_command.json in Resources */,
 				C35EFCAD218697BB0050E0F3 /* Assets.xcassets in Resources */,
 				C35EFCAB218697B60050E0F3 /* Main.storyboard in Resources */,
 			);

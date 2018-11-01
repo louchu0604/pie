@@ -30,6 +30,8 @@
 - (void)p_cy_tabBarItemClicked:(UIBarButtonItem *)item
 {
     NSLog(@"user select:%@",item.title);
+  
+    
     [self p_cy_tabBarItemClicked:item];
 }
 - (void)p_cy_setSelectedIndex:(NSUInteger)selectedIndex
