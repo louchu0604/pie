@@ -3,8 +3,9 @@
     "emer":"0",
     "path":[
         {
-            "path":"SSHome-UITabBarController-",
-            "index":"睡觉",
+            "path":"SSHomeVC-UITabBarController-",
+            "index":["睡觉","0","我的","3",],
         }
     ]
 }
+

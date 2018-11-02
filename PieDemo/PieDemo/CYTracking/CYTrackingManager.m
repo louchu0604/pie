@@ -46,6 +46,7 @@ static NSString *currentIndex;
         formatter = [[NSDateFormatter alloc]init];
         [formatter setDateFormat:@"yyyy/MM/dd HH:mm:ss"];
         saveLogs = [NSMutableString new];
+        currentIndex = @"";
         
         //        判断文件是否存在？donothing:create a new one
         
@@ -61,11 +62,60 @@ static NSString *currentIndex;
     NSData *data=[NSData dataWithContentsOfFile:path];
     commands = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:NULL];
 }
-- (void)addEvent:(SEL)action from:(nullable id)sender
+- (void)addAction:(SEL)action from:(nullable id)sender to:(nullable id)target
 {
     if (openWrite) {
+        NSLog(@"可以记录");
+        
+        NSMutableString *logStr = [NSMutableString new];
+        [logStr appendString:[NSString stringWithFormat:@"sel:%@ from:%@  ",NSStringFromSelector(action),NSStringFromClass([sender class])]];
+        [logStr appendString:@"("];
+        if ([sender isKindOfClass:[UIButton class]]) {
+            NSString *strtitle = ((UIButton *)sender).currentTitle;
+            
+            if (strtitle) {
+                NSLog(@"strtitle : %@",strtitle);
+                [logStr appendString:[NSString stringWithFormat:@"按钮名称:%@ ",strtitle]];
+            }
+            NSString *imagename = ((UIButton *)sender).imageView.image.accessibilityIdentifier;
+            if ((imagename)) {
+                NSLog(@"imagename : %@",imagename);
+                [logStr appendString:[NSString stringWithFormat:@"按钮图片:%@ ",imagename]];
+            }
+           
+        }
+        Class cls = NSClassFromString(@"_UIButtonBarButton");
+        if ([sender isKindOfClass:[UIBarButtonItem class]]) {
+            NSString *strtitle = ((UIBarButtonItem *)sender).title;
+            
+            if (strtitle) {
+                NSLog(@"strtitle : %@",strtitle);
+                [logStr appendString:[NSString stringWithFormat:@"按钮名称:%@ ",strtitle]];
+            }
+            NSString *imagename = ((UIBarButtonItem *)sender).image.accessibilityIdentifier;
+            if ((imagename)) {
+                NSLog(@"imagename : %@",imagename);
+                [logStr appendString:[NSString stringWithFormat:@"按钮图片:%@ ",imagename]];
+            }
+            
+        }
+        
+        if ([sender isKindOfClass:[UISwitch class]]) {
+            BOOL open = ((UISwitch *)sender).on;
+            if (open) {
+                [logStr appendString:@"open"];
+
+            }else
+            {
+                [logStr appendString:@"close"];
+            }
+        }
+    
+        [logStr appendString:[NSString stringWithFormat:@") to:%@ \r",NSStringFromClass([target class])]];
+        [self saveLog:logStr];
         
     }
+    
 //    key的值为路径+要追踪的方法
     
 //    query current vc add event
@@ -125,7 +175,7 @@ static NSString *currentIndex;
     openWrite = false;
     if ([[commands valueForKey:@"isAll"] intValue]==1){//isAll==1 对此页面开始的路径都生效
         for (NSDictionary  *dic in [commands valueForKey:@"path"]) {
-            if ([str hasPrefix:[dic valueForKey:@"path"]]&&[currentIndex isEqualToString:[dic valueForKey:@"index"]]) {
+            if ([str hasPrefix:[dic valueForKey:@"path"]]&& [[dic valueForKey:@"index"] indexOfObject:currentIndex]!=NSNotFound) {
                 openWrite = true;
                 break;
             }
@@ -133,12 +183,11 @@ static NSString *currentIndex;
     }else
     {
         for (NSDictionary  *dic in [commands valueForKey:@"path"]) {
-            if ([str isEqualToString:[dic valueForKey:@"path"]]&&[currentIndex isEqualToString:[dic valueForKey:@"index"]]) {
+            if ([str isEqualToString:[dic valueForKey:@"path"]]&& [[dic valueForKey:@"index"] indexOfObject:currentIndex]!=NSNotFound) {
                 openWrite = true;
                 break;
             }
         }
-        
     }
     if(openWrite)
     {
