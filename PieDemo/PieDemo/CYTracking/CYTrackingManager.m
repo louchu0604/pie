@@ -48,9 +48,6 @@ static NSString *currentIndex;
         saveLogs = [NSMutableString new];
         currentIndex = @"";
         
-        //        判断文件是否存在？donothing:create a new one
-        
-//    why serial? writeToFile需要串行执行 查阅oc的文件读写原理（）
     });
     return manager;
     
@@ -181,25 +178,28 @@ static NSString *currentIndex;
     if (saveLogs.length==0) {
         return;
     }
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSArray *directoryPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
-    NSString *documentDirectory = [directoryPaths objectAtIndex:0];
-   
-    NSString *filePath = [documentDirectory stringByAppendingPathComponent:savePath];
-   
-
-    if (![fileManager fileExistsAtPath:filePath]) {
+    dispatch_sync(serialQueue, ^{
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSArray *directoryPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+        NSString *documentDirectory = [directoryPaths objectAtIndex:0];
         
-        [fileManager createFileAtPath:filePath contents:nil attributes:nil];
-    }
-    NSData *data =[saveLogs dataUsingEncoding:NSUTF8StringEncoding];
-    NSFileHandle *writeFileHandle =[NSFileHandle fileHandleForWritingAtPath:filePath];
-    [writeFileHandle seekToEndOfFile]; //设置偏移量跳到文件的末尾
-    [writeFileHandle writeData:data]; //写入数据
-    [writeFileHandle closeFile]; //关闭文件
+        NSString *filePath = [documentDirectory stringByAppendingPathComponent:savePath];
+        
+        
+        if (![fileManager fileExistsAtPath:filePath]) {
+            
+            [fileManager createFileAtPath:filePath contents:nil attributes:nil];
+        }
+        NSData *data =[saveLogs dataUsingEncoding:NSUTF8StringEncoding];
+        NSFileHandle *writeFileHandle =[NSFileHandle fileHandleForWritingAtPath:filePath];
+        [writeFileHandle seekToEndOfFile]; //设置偏移量跳到文件的末尾
+        [writeFileHandle writeData:data]; //写入数据
+        [writeFileHandle closeFile]; //关闭文件
+        
+        [saveLogs setString:@""];
+        NSLog(@"write success");
+    });
   
-    [saveLogs setString:@""];
-    NSLog(@"write success");
 }
 
 @end

@@ -31,14 +31,12 @@
 }
 - (void)p_cy_tabBarItemClicked:(UIBarButtonItem *)item
 {
-    NSLog(@"user select:%@",item.title);
-    
     [[CYTrackingManager sharedTrackingManager] currentIndex:item.title];
     [self p_cy_tabBarItemClicked:item];
 }
 - (void)p_cy_setSelectedIndex:(NSUInteger)selectedIndex
 {
-     [[CYTrackingManager sharedTrackingManager] currentIndex:[NSString stringWithFormat:@"%d",(unsigned long)selectedIndex]];
+    [[CYTrackingManager sharedTrackingManager] currentIndex:[NSString stringWithFormat:@"%lu",selectedIndex]];
     [self p_cy_setSelectedIndex:selectedIndex];
 }
 - (void)p_cy_tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
