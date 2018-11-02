@@ -62,107 +62,83 @@ static NSString *currentIndex;
     NSData *data=[NSData dataWithContentsOfFile:path];
     commands = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:NULL];
 }
+#pragma mark - 记录相应的点击日志
 - (void)addAction:(SEL)action from:(nullable id)sender to:(nullable id)target
 {
     if (openWrite) {
-        NSLog(@"可以记录");
-        
         NSMutableString *logStr = [NSMutableString new];
         [logStr appendString:[NSString stringWithFormat:@"sel:%@ from:%@  ",NSStringFromSelector(action),NSStringFromClass([sender class])]];
         [logStr appendString:@"("];
         if ([sender isKindOfClass:[UIButton class]]) {
             NSString *strtitle = ((UIButton *)sender).currentTitle;
-            
             if (strtitle) {
-                NSLog(@"strtitle : %@",strtitle);
                 [logStr appendString:[NSString stringWithFormat:@"按钮名称:%@ ",strtitle]];
             }
             NSString *imagename = ((UIButton *)sender).imageView.image.accessibilityIdentifier;
             if ((imagename)) {
-                NSLog(@"imagename : %@",imagename);
                 [logStr appendString:[NSString stringWithFormat:@"按钮图片:%@ ",imagename]];
             }
-           
         }
         Class cls = NSClassFromString(@"_UIButtonBarButton");
         if ([sender isKindOfClass:[UIBarButtonItem class]]) {
             NSString *strtitle = ((UIBarButtonItem *)sender).title;
             
             if (strtitle) {
-                NSLog(@"strtitle : %@",strtitle);
                 [logStr appendString:[NSString stringWithFormat:@"按钮名称:%@ ",strtitle]];
             }
             NSString *imagename = ((UIBarButtonItem *)sender).image.accessibilityIdentifier;
             if ((imagename)) {
-                NSLog(@"imagename : %@",imagename);
                 [logStr appendString:[NSString stringWithFormat:@"按钮图片:%@ ",imagename]];
             }
-            
         }
         
         if ([sender isKindOfClass:[UISwitch class]]) {
             BOOL open = ((UISwitch *)sender).on;
             if (open) {
                 [logStr appendString:@"open"];
-
             }else
             {
                 [logStr appendString:@"close"];
             }
         }
-    
         [logStr appendString:[NSString stringWithFormat:@") to:%@ \r",NSStringFromClass([target class])]];
         [self saveLog:logStr];
-        
     }
-    
-//    key的值为路径+要追踪的方法
-    
-//    query current vc add event
-    
-//    遍历superview 举例：viewcontroller_view_btn
-//    NSLog(@"\r url:%@ \r action:%@ class:%@",url_path,NSStringFromSelector(action),NSStringFromClass([sender class]));
-    
 }
+
+#pragma mark - tab切换
 - (void)currentIndex:(NSString *)index
 {
     currentIndex = index;
 }
-#pragma mark - 路径重置
-- (void)setCurrentPath
-{
-    [vcArray removeAllObjects];
-}
-- (void)p_removeVC:(id)vc
-{
-    for (id element in vcArray) {
-        if (vc==element) {
-            [vcArray removeObject:element];
-            break;
-        }
-    }
-}
-#pragma mark - 根据内存地址来匹配
+#pragma mark - vc入栈
 - (void)addVC:(NSDictionary *)info
 {
     [vcArray addObject:info];
-     NSLog(@"add");
     [self printvcarray];
 
 }
+#pragma mark - vc出栈 根据内存地址来匹配
 - (void)removeVC:(NSDictionary *)info
 {
-    
     for (NSDictionary *vcinfo in vcArray) {
         if ([[vcinfo valueForKey:@"add"] isEqualToString:[info valueForKey:@"add"]]) {
             [vcArray removeObject:vcinfo];
             break;
         }
     }
-    NSLog(@"remove");
     [self printvcarray];
    
 }
+#pragma mark - nav resetVCs
+- (void)resetVCArray:(NSArray *)vc
+{
+    [vcArray removeAllObjects];
+    [vcArray addObjectsFromArray:vc];
+    NSLog(@"reset");
+    [self printvcarray];
+}
+#pragma mark - 查看当前路径 格式VCName-VCName-VCName-VCName-...
 - (void)printvcarray
 {
     
@@ -208,28 +184,22 @@ static NSString *currentIndex;
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSArray *directoryPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
     NSString *documentDirectory = [directoryPaths objectAtIndex:0];
-    
    
     NSString *filePath = [documentDirectory stringByAppendingPathComponent:savePath];
+   
+
     if (![fileManager fileExistsAtPath:filePath]) {
         
         [fileManager createFileAtPath:filePath contents:nil attributes:nil];
     }
-    
-    BOOL result =[saveLogs writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
-    if (result) {//
-        [saveLogs setString:@""];
-        NSLog(@"write success");
-    }else
-    {
-        NSLog(@"write fail");
-    }
+    NSData *data =[saveLogs dataUsingEncoding:NSUTF8StringEncoding];
+    NSFileHandle *writeFileHandle =[NSFileHandle fileHandleForWritingAtPath:filePath];
+    [writeFileHandle seekToEndOfFile]; //设置偏移量跳到文件的末尾
+    [writeFileHandle writeData:data]; //写入数据
+    [writeFileHandle closeFile]; //关闭文件
+  
+    [saveLogs setString:@""];
+    NSLog(@"write success");
 }
-- (void)resetVCArray:(NSArray *)vc
-{
-    [vcArray removeAllObjects];
-    [vcArray addObjectsFromArray:vc];
-     NSLog(@"reset");
-    [self printvcarray];
-}
+
 @end
