@@ -21,6 +21,7 @@
 		C342F6BC2188D85500F38897 /* TestObj.m in Sources */ = {isa = PBXBuildFile; fileRef = C342F6BB2188D85500F38897 /* TestObj.m */; };
 		C342F6F8218AAAEC00F38897 /* cy_trace_command.json in Resources */ = {isa = PBXBuildFile; fileRef = C342F6F7218AAAEC00F38897 /* cy_trace_command.json */; };
 		C342F702218C2FC500F38897 /* CYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C342F701218C2FC500F38897 /* CYFPSLabel.m */; };
+		C342F70721952F3D00F38897 /* UITableViewCell+CYSelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C342F70621952F3D00F38897 /* UITableViewCell+CYSelCell.m */; };
 		C35EFCA5218697B50050E0F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C35EFCA4218697B50050E0F3 /* AppDelegate.m */; };
 		C35EFCA8218697B60050E0F3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C35EFCA7218697B60050E0F3 /* ViewController.m */; };
 		C35EFCAB218697B60050E0F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C35EFCA9218697B60050E0F3 /* Main.storyboard */; };
@@ -79,6 +80,8 @@
 		C342F6F7218AAAEC00F38897 /* cy_trace_command.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cy_trace_command.json; sourceTree = "<group>"; };
 		C342F700218C2FC500F38897 /* CYFPSLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CYFPSLabel.h; sourceTree = "<group>"; };
 		C342F701218C2FC500F38897 /* CYFPSLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CYFPSLabel.m; sourceTree = "<group>"; };
+		C342F70521952F3D00F38897 /* UITableViewCell+CYSelCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+CYSelCell.h"; sourceTree = "<group>"; };
+		C342F70621952F3D00F38897 /* UITableViewCell+CYSelCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+CYSelCell.m"; sourceTree = "<group>"; };
 		C35EFCA0218697B50050E0F3 /* PieDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PieDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C35EFCA3218697B50050E0F3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C35EFCA4218697B50050E0F3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -153,6 +156,8 @@
 				C33C72CC2189FA0600850A42 /* CYNodeManager.h */,
 				C33C72CD2189FA0600850A42 /* UIImage+SaveImageName.m */,
 				C33C72CE2189FA0600850A42 /* UIApplication+CYClick.h */,
+				C342F70521952F3D00F38897 /* UITableViewCell+CYSelCell.h */,
+				C342F70621952F3D00F38897 /* UITableViewCell+CYSelCell.m */,
 			);
 			name = CYTracking;
 			path = PieDemo/CYTracking;
@@ -375,6 +380,7 @@
 			files = (
 				C33C72D72189FA0600850A42 /* UITabBarController+CYPush.m in Sources */,
 				C35EFCA8218697B60050E0F3 /* ViewController.m in Sources */,
+				C342F70721952F3D00F38897 /* UITableViewCell+CYSelCell.m in Sources */,
 				C33C72D02189FA0600850A42 /* UINavigationController+CYPushPop.m in Sources */,
 				C33C72CF2189FA0600850A42 /* UIViewController+CYViewPush.m in Sources */,
 				C33C72D22189FA0600850A42 /* CYNodeManager.m in Sources */,
