@@ -36,9 +36,6 @@ static CYFPSLabel *fpsLabel;
 
     _fpsLink = [CADisplayLink displayLinkWithTarget:self  selector:@selector(tick:)];
     [_fpsLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
-//    UILabel *hhh = [UILabel new];
-//    hhh.frame = CGRectMake(0, 40, 50, 50);
-//    hhh.backgroundColor = [UIColor redColor];
     UIWindow *window = [UIApplication sharedApplication].keyWindow ;
     [window addSubview:self];
     

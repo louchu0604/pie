@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "CYFPSLabel.h"
+
 @interface AppDelegate ()
 
 @end
@@ -16,6 +18,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   
+     [[CYFPSLabel sharedFPSLabel] showFPS];
+    
     // Override point for customization after application launch.
     
     return YES;
