@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
+//写成了单例
 @interface CYFPSLabel : UILabel
 + (instancetype)sharedFPSLabel;
 - (void)showFPS;
