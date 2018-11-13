@@ -11,6 +11,8 @@
 #import "CYButton.h"
 #import <objc/runtime.h>
 #import "TestObj.h"
+#import "CYFPSLabel.h"
+
 
 #define kbaseKey 10000
 @interface ViewController ()
@@ -21,8 +23,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self sendMsg];
+    
+   
     // Do any additional setup after loading the view, typically from a nib.
+}
+- (void)viewDidAppear:(BOOL)animated
+{
+      [[CYFPSLabel sharedFPSLabel] showFPS];
 }
 - (void)sendMsg
 {

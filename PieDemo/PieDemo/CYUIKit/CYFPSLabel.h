@@ -11,7 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CYFPSLabel : UILabel
-
++ (instancetype)sharedFPSLabel;
+- (void)showFPS;
+- (void)hideFPS;
 @end
 
 NS_ASSUME_NONNULL_END
