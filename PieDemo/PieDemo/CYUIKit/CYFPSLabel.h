@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)sharedFPSLabel;
 - (void)showFPS;
 - (void)hideFPS;
+- (void)setM:(BOOL)show;
 @end
 
 NS_ASSUME_NONNULL_END

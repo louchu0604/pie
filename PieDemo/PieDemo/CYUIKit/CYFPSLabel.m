@@ -14,6 +14,7 @@ static CYFPSLabel *fpsLabel;
     CADisplayLink *_fpsLink;
     int _fpscount;
     NSTimeInterval _lastTime;
+    BOOL _showM;
     
 }
 + (instancetype)sharedFPSLabel
@@ -29,6 +30,10 @@ static CYFPSLabel *fpsLabel;
         fpsLabel.textColor = [UIColor whiteColor];
         });
     return fpsLabel;
+}
+- (void)setM:(BOOL)show
+{
+    _showM = show;
 }
 - (void)showFPS
 {
@@ -57,6 +62,9 @@ static CYFPSLabel *fpsLabel;
 //    NSLog(@"%@", text1);
 
     self.text = text1;
+    if (_showM) {
+//       show memory usage
+    }
 }
 - (void)hideFPS
 {
