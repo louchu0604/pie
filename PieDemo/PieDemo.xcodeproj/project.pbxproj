@@ -33,6 +33,10 @@
 		C35EFCDB21869EB20050E0F3 /* CYPieView.m in Sources */ = {isa = PBXBuildFile; fileRef = C35EFCD921869EB20050E0F3 /* CYPieView.m */; };
 		C35EFCDE21869EFB0050E0F3 /* RouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C35EFCDD21869EFB0050E0F3 /* RouteManager.m */; };
 		C35EFCE52187ED030050E0F3 /* CYButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C35EFCE42187ED030050E0F3 /* CYButton.m */; };
+		C3F31995219D3F0100CD2FA9 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F31994219D3F0100CD2FA9 /* CollectionViewController.m */; };
+		C3F31998219D421B00CD2FA9 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F31997219D421B00CD2FA9 /* CollectionViewCell.m */; };
+		C3F3199B219D460500CD2FA9 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F3199A219D460500CD2FA9 /* TableViewController.m */; };
+		C3F3199E219D463800CD2FA9 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F3199D219D463800CD2FA9 /* TableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +109,14 @@
 		C35EFCDF2186A1290050E0F3 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		C35EFCE32187ED030050E0F3 /* CYButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CYButton.h; sourceTree = "<group>"; };
 		C35EFCE42187ED030050E0F3 /* CYButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CYButton.m; sourceTree = "<group>"; };
+		C3F31993219D3F0100CD2FA9 /* CollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		C3F31994219D3F0100CD2FA9 /* CollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		C3F31996219D421B00CD2FA9 /* CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		C3F31997219D421B00CD2FA9 /* CollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		C3F31999219D460500CD2FA9 /* TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		C3F3199A219D460500CD2FA9 /* TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		C3F3199C219D463800CD2FA9 /* TableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		C3F3199D219D463800CD2FA9 /* TableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +212,14 @@
 				C35EFCA4218697B50050E0F3 /* AppDelegate.m */,
 				C35EFCA6218697B60050E0F3 /* ViewController.h */,
 				C35EFCA7218697B60050E0F3 /* ViewController.m */,
+				C3F31999219D460500CD2FA9 /* TableViewController.h */,
+				C3F3199A219D460500CD2FA9 /* TableViewController.m */,
+				C3F3199C219D463800CD2FA9 /* TableViewCell.h */,
+				C3F3199D219D463800CD2FA9 /* TableViewCell.m */,
+				C3F31993219D3F0100CD2FA9 /* CollectionViewController.h */,
+				C3F31994219D3F0100CD2FA9 /* CollectionViewController.m */,
+				C3F31996219D421B00CD2FA9 /* CollectionViewCell.h */,
+				C3F31997219D421B00CD2FA9 /* CollectionViewCell.m */,
 				C342F6BA2188D85500F38897 /* TestObj.h */,
 				C342F6BB2188D85500F38897 /* TestObj.m */,
 				C342F6B72188D3B100F38897 /* UIViewController+addMethod.h */,
@@ -378,6 +398,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3F3199B219D460500CD2FA9 /* TableViewController.m in Sources */,
 				C33C72D72189FA0600850A42 /* UITabBarController+CYPush.m in Sources */,
 				C35EFCA8218697B60050E0F3 /* ViewController.m in Sources */,
 				C342F70721952F3D00F38897 /* UITableViewCell+CYSelCell.m in Sources */,
@@ -386,9 +407,11 @@
 				C33C72D22189FA0600850A42 /* CYNodeManager.m in Sources */,
 				C35EFCE52187ED030050E0F3 /* CYButton.m in Sources */,
 				C35EFCB3218697BB0050E0F3 /* main.m in Sources */,
+				C3F31995219D3F0100CD2FA9 /* CollectionViewController.m in Sources */,
 				C342F702218C2FC500F38897 /* CYFPSLabel.m in Sources */,
 				C33C72D82189FA0600850A42 /* UIImage+SaveImageName.m in Sources */,
 				C35EFCDE21869EFB0050E0F3 /* RouteManager.m in Sources */,
+				C3F3199E219D463800CD2FA9 /* TableViewCell.m in Sources */,
 				C33C72D12189FA0600850A42 /* CYTrackingManager.m in Sources */,
 				C35EFCA5218697B50050E0F3 /* AppDelegate.m in Sources */,
 				C33C72D32189FA0600850A42 /* UITabBarItem+CYSelect.m in Sources */,
@@ -397,6 +420,7 @@
 				C342F6B92188D3B100F38897 /* UIViewController+addMethod.m in Sources */,
 				C33C72D42189FA0600850A42 /* UIApplication+CYClick.m in Sources */,
 				C35EFCDB21869EB20050E0F3 /* CYPieView.m in Sources */,
+				C3F31998219D421B00CD2FA9 /* CollectionViewCell.m in Sources */,
 				C342F6BC2188D85500F38897 /* TestObj.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

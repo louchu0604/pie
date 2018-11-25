@@ -16,15 +16,20 @@
 
 #define kbaseKey 10000
 @interface ViewController ()
-
+<UITableViewDelegate,UITableViewDelegate>
+@property (nonatomic, strong) UITableView *tableView;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _tableView = [UITableView new];
+    [self.view addSubview:_tableView];
+    _tableView.frame = self.view.frame;
     
-   
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
     // Do any additional setup after loading the view, typically from a nib.
 }
 - (void)viewDidAppear:(BOOL)animated

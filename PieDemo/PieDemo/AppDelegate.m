@@ -8,7 +8,8 @@
 
 #import "AppDelegate.h"
 #import "CYFPSLabel.h"
-
+#import "ViewController.h"
+#import "TableViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -18,8 +19,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   
-     [[CYFPSLabel sharedFPSLabel] showFPS];
-    
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:[TableViewController new]];
+    _window.rootViewController = nav;
     // Override point for customization after application launch.
     
     return YES;
